@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mythborn</title>
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/characterCreation.css" />
   </head>
   <body>
     <div id="auth-container">
       <h1>Mythborn</h1>
-
       <div id="login-form">
         <input type="email" id="email" placeholder="Email" />
         <input type="password" id="password" placeholder="Password" />
@@ -17,12 +17,10 @@
         <button id="btn-register">Register</button>
         <button id="btn-google">Sign in with Google</button>
       </div>
-
-      <div id="game-container" style="display:none;">
-        <p id="welcome-msg"></p>
-        <button id="btn-logout">Logout</button>
-      </div>
     </div>
+
+    <div id="character-creation" style="display:none;"></div>
+    <div id="game-container" style="display:none;"></div>
 
     <script type="module" src="scripts/main.js"></script>
   </body>

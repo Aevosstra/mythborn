@@ -1,0 +1,239 @@
+#character-creation {
+  width: 100%;
+  max-width: 760px;
+  padding: 2rem;
+}
+
+.cc-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.cc-screen h2 {
+  font-size: 1.75rem;
+  color: #c9a84c;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* ── Sections ─────────────────────────────────────────── */
+
+.cc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cc-section > label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7a7090;
+}
+
+/* ── Username ─────────────────────────────────────────── */
+
+.cc-username-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cc-username-row input {
+  flex: 1;
+}
+
+.cc-status {
+  font-size: 0.8rem;
+  min-width: 96px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.cc-status--idle      { color: transparent; }
+.cc-status--checking  { color: #7a7090; }
+.cc-status--available { color: #5cb85c; }
+.cc-status--taken     { color: #d9534f; }
+.cc-status--invalid   { color: #e6a817; }
+
+/* ── Class cards ──────────────────────────────────────── */
+
+.cc-class-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.cc-class-card {
+  background: #14142a;
+  border: 2px solid #24244a;
+  border-radius: 8px;
+  padding: 1rem 0.75rem;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+
+.cc-class-card:hover {
+  border-color: #c9a84c;
+  background: #1a1a38;
+}
+
+.cc-class-card.cc-selected {
+  border-color: #c9a84c;
+  background: #1e1e38;
+  box-shadow: 0 0 0 1px #c9a84c;
+}
+
+.cc-class-art {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  margin: 0 auto 0.75rem;
+}
+
+.cc-class-card h3 {
+  font-size: 0.9rem;
+  color: #c9a84c;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.cc-class-card p {
+  font-size: 0.75rem;
+  color: #8a8098;
+  line-height: 1.45;
+}
+
+/* ── Avatar grid ──────────────────────────────────────── */
+
+.cc-avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+}
+
+.cc-avatar-tile {
+  background: #14142a;
+  border: 2px solid #24244a;
+  border-radius: 8px;
+  padding: 0.75rem 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+
+.cc-avatar-tile:hover {
+  border-color: #c9a84c;
+  background: #1a1a38;
+}
+
+.cc-avatar-tile.cc-selected {
+  border-color: #c9a84c;
+  background: #1e1e38;
+  box-shadow: 0 0 0 1px #c9a84c;
+}
+
+.cc-avatar-art {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.cc-avatar-tile span {
+  font-size: 0.7rem;
+  color: #7a7090;
+}
+
+/* ── Art colours ──────────────────────────────────────── */
+
+.cc-art--warrior { background: #7a1c1c; }
+.cc-art--rogue   { background: #1c5c1c; }
+.cc-art--mage    { background: #1c1c8c; }
+.cc-art--cleric  { background: #7c5c10; }
+
+/* ── Summary (screen 3) ───────────────────────────────── */
+
+.cc-summary {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  background: #14142a;
+  border: 1px solid #24244a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.cc-summary-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cc-summary-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  align-items: center;
+}
+
+.cc-summary-details dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7a7090;
+}
+
+.cc-summary-details dd {
+  font-size: 1rem;
+  color: #e8e0d0;
+}
+
+/* ── Navigation ───────────────────────────────────────── */
+
+.cc-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cc-nav--right {
+  justify-content: flex-end;
+}
+
+.cc-btn {
+  padding: 0.7rem 2rem;
+}
+
+.cc-btn--ghost {
+  background: transparent;
+  color: #8a8098;
+  border: 1px solid #2a2a4a;
+}
+
+.cc-btn--ghost:hover:not(:disabled) {
+  background: #14142a;
+  color: #c8c0d8;
+}
+
+/* ── Error ────────────────────────────────────────────── */
+
+.cc-error {
+  background: #1e0a0a;
+  border: 1px solid #6b2020;
+  border-radius: 6px;
+  color: #d9534f;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
