@@ -5,7 +5,7 @@ import {
   writeBatch,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
-import leoProfanity from "https://esm.sh/leo-profanity";
+import leoProfanity from "./vendor/leo-profanity.js";
 
 const RESERVED = ["admin", "moderator", "gm", "system", "mythborn"];
 
@@ -120,7 +120,7 @@ function onUsernameInput(e) {
 
 async function checkUsername(username) {
   try {
-    const snap = await getDoc(doc(db, "usernames", username));
+    const snap = await getDoc(doc(db, "usernames", username.toLowerCase()));
     if (state.username !== username) return;
     setStatus(snap.exists() ? "taken" : "available");
   } catch {
@@ -237,7 +237,7 @@ async function handleConfirm() {
   errorEl.style.display = "none";
 
   try {
-    const usernameSnap = await getDoc(doc(db, "usernames", state.username));
+    const usernameSnap = await getDoc(doc(db, "usernames", state.username.toLowerCase()));
     if (usernameSnap.exists()) {
       errorEl.textContent = "That username was just taken. Returning to name selection…";
       errorEl.style.display = "block";
@@ -253,7 +253,7 @@ async function handleConfirm() {
     const now = serverTimestamp();
     const batch = writeBatch(db);
 
-    batch.set(doc(db, "usernames", state.username), { uid });
+    batch.set(doc(db, "usernames", state.username.toLowerCase()), { uid });
     batch.set(doc(db, "users", uid), {
       username: state.username,
       createdAt: now,
